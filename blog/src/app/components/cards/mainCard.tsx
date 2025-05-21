@@ -31,7 +31,7 @@ export default function MainCard() {
                         - Março 20, 2025
                     </p>
                 </div>
-                <button className="bg-[#FF3B30] text-white w-[110px] h-10 text-sm rounded-lg hidden lg:grid items-center hover:bg-[#e83c33] cursor-pointer">LER MAIS</button>
+                <button className="bg-[#FF3B30] text-white w-[110px] h-10 text-sm rounded-lg hidden lg:grid items-center hover:bg-[#ff1206] cursor-pointer">LER MAIS</button>
             </div>
         </div>
     );

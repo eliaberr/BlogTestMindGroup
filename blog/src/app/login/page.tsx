@@ -5,6 +5,8 @@ import FormLogin from "../forms/login/formLogin";
 import FormForgotPassword from "../forms/forgotPassword/formforgotPassword";
 import FormRegister from "../forms/register/formRegister";
 import Image from "next/image";
+import { GoHome } from "react-icons/go";
+import Link from "next/link";
 
 export default function PageLogin() {
     const [showForm, setShowForm] = useState(0);
@@ -28,7 +30,7 @@ export default function PageLogin() {
     ];
 
     return (
-        <section className="h-screen grid-cols-12 lg:grid">
+        <section className="h-screen grid-cols-12 lg:grid relative">
             <div className="bg-[#090909] hidden col-span-7 lg:flex flex-col justify-center items-center gap-2">
                 <Image
                     src="/assets/Logo.png"
@@ -39,15 +41,10 @@ export default function PageLogin() {
                 <h2 className="text-white">Inovação ao Seu Alcance.</h2>
             </div>
             <div className="col-span-5 w-[303px] mx-auto flex-col lg:justify-center lg:flex ">
-                <button className="border rounded-2xl w-20 text-sm flex justify-center items-center gap-2 cursor-pointer hover:bg-[#f1f1f1f1]">
-                    <Image 
-                        src="/assets/home.svg"
-                        width={20}
-                        height={30}
-                        alt="home"
-                    />
+                <Link href="/" className="border rounded-2xl w-20 text-sm flex justify-center items-center gap-2 cursor-pointer hover:bg-[#f1f1f1f1] absolute -top-6 right-3 lg:top-5 lg:right-2">
+                    <GoHome />
                     Home
-                </button>
+                </Link>
                 <div className="mt-[70px] py-2.5 h-[116px] flex flex-col justify-between lg:mt-0">
                     <div className="flex gap-5 items-center">
                         {showForm != 0 ? (
