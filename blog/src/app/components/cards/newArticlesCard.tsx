@@ -2,16 +2,17 @@ import Image from "next/image";
 
 export default function NewArticlesCard() {
     return (
-        <div className="bg-[#090909] text-white rounded-sm mt-10 py-6 px-3 mb-20 lg:col-span-5 lg:mt-0 lg:h-[530px] lg:px-5 overflow-auto">
+        <div className="bg-[#090909] text-white rounded-sm mt-10 py-6 px-3 mb-20 lg:col-span-5 lg:mt-0 lg:h-[530px] lg:px-0 overflow-auto">
             <Image
                 src="/assets/tagNew.png"
                 width={88}
                 height={58}
                 alt="tagNew"
+                className="lg:ps-5"
             />
 
             <div className="grid gap-5 mt-5 text-[12px]">
-                <div className=" grid gap-2">
+                <div className="grid gap-2 hover:bg-gray-800 lg:px-5 lg:py-2 cursor-pointer">
                     <h2 className="font-semibold lg:text-lg">
                         Inteligência Artificial: O Futuro da Automação e da
                         Transformação Digital
@@ -21,7 +22,7 @@ export default function NewArticlesCard() {
                         está moldando o futuro dos negócios e da tecno...
                     </p>
                 </div>
-                <div className=" grid gap-2">
+                <div className=" grid gap-2 hover:bg-gray-800 lg:px-5 lg:py-2 cursor-pointer">
                     <h2 className="font-semibold lg:text-lg">
                         Inteligência Artificial: O Futuro da Automação e da
                         Transformação Digital
@@ -31,7 +32,7 @@ export default function NewArticlesCard() {
                         está moldando o futuro dos negócios e da tecno...
                     </p>
                 </div>
-                <div className=" grid gap-2">
+                <div className=" grid gap-2 hover:bg-gray-800 lg:px-5 lg:py-2 cursor-pointer">
                     <h2 className="font-semibold lg:text-lg">
                         Inteligência Artificial: O Futuro da Automação e da
                         Transformação Digital

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "../UI/button";
+import Link from "next/link";
 
 export default function NavBar() {
     return (
@@ -11,11 +12,15 @@ export default function NavBar() {
                 alt="logo"
             />
             <div className="flex justify-between items-center w-[346px] text-[14px]">
-                <a href="">Home</a>
-                <a href="">Artigos</a>
+                <Link href="/" className="hover:underline">
+                    Home
+                </Link>
+                <a href="" className="hover:underline">Artigos</a>
                 <span className="border-e border-[#090909] h-3.5"></span>
-                <a href="">Entrar</a>
-                <Button className="w-[93px] h-10 text-white bg-black rounded-lg">Registrar</Button>
+                <Link href="/login" className="hover:underline">
+                    Entrar
+                </Link>
+                <Button className="w-[93px] h-10 text-white bg-black rounded-lg cursor-pointer hover:bg-gray-800">Registrar</Button>
             </div>
         </div>
     );

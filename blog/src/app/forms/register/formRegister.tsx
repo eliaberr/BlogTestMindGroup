@@ -57,7 +57,7 @@ export default function FormRegister({showForm}:AllFormProps) {
       </div>
       <a
         onClick={() => showForm?.(0)}
-        className="text-[10px] flex justify-center"
+        className="text-[10px] flex justify-center cursor-pointer hover:underline"
       >
         Já tem cadastro? Clique aqui
       </a>

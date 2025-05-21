@@ -37,14 +37,14 @@ export default function FormLogin({ showForm }: AllFormProps) {
             />
             <a
                 onClick={() => showForm?.(1)}
-                className="text-[10px] flex justify-end"
+                className="text-[10px] flex justify-end cursor-pointer hover:underline"
             >
                 Esqueceu a Senha?
             </a>
             <Button type="submit">Login</Button>
             <a
                 onClick={() => showForm?.(2)}
-                className="text-[10px] flex justify-center"
+                className="text-[10px] flex justify-center cursor-pointer hover:underline"
             >
                 Novo usuário? Clique aqui
             </a>

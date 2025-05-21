@@ -51,7 +51,7 @@ export default function FormForgotPassword({ showForm }: AllFormProps) {
       <Button type="submit">Alterar</Button>
       <a
         onClick={() => showForm?.(2)}
-        className="text-[10px] flex justify-center"
+        className="text-[10px] flex justify-center cursor-pointer hover:underline"
       >
         Novo usuário? Clique aqui
       </a>
