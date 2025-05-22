@@ -1,10 +1,10 @@
 "use client";
 import Button from "@/app/components/UI/button";
 import Input from "@/app/components/UI/input";
-import { AllFormProps } from "@/app/intercafe";
+import Link from "next/link";
 import { useState } from "react";
 
-export default function FormRegister({showForm}:AllFormProps) {
+export default function FormRegister() {
   const [emailUser, setEmailUser] = useState("");
   const [passwordUser, setPasswordUser] = useState("");
   const [confirmPasswordUser, setconfirmPasswordUser] = useState("");
@@ -55,12 +55,12 @@ export default function FormRegister({showForm}:AllFormProps) {
           Li e concordo com os Termos de Uso e a Política de Privacidade.
         </p>
       </div>
-      <a
-        onClick={() => showForm?.(0)}
+      <Link
+        href="/login"
         className="text-[10px] flex justify-center cursor-pointer hover:underline"
       >
         Já tem cadastro? Clique aqui
-      </a>
+      </Link>
     </form>
   );
 }

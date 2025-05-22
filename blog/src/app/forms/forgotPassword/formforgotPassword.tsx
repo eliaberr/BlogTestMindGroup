@@ -2,6 +2,7 @@
 import Button from "@/app/components/UI/button";
 import Input from "@/app/components/UI/input";
 import { AllFormProps } from "@/app/intercafe";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function FormForgotPassword({ showForm }: AllFormProps) {
@@ -49,12 +50,12 @@ export default function FormForgotPassword({ showForm }: AllFormProps) {
         required
       />
       <Button type="submit">Alterar</Button>
-      <a
-        onClick={() => showForm?.(2)}
+      <Link
+        href="/register"
         className="text-[10px] flex justify-center cursor-pointer hover:underline"
       >
         Novo usuário? Clique aqui
-      </a>
+      </Link>
     </form>
   );
 }

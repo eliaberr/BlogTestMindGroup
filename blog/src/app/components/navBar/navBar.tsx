@@ -1,22 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Button from "../UI/button";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function NavBar() {
-    const [userLogin, setUserLogin] = useState(true);
+    const [userLogin, setUserLogin] = useState(false);
 
     return (
         <div className="flex justify-center lg:justify-between mt-3">
-            <Image
-                src="/assets/LogoBlack.png"
-                width={70}
-                height={70}
-                alt="logo"
-                className="hidden lg:grid"
-            />
+            <Link href="/" className="text-black font-irish text-[64px]">
+                M.
+            </Link>
             <div className="flex justify-between items-center w-[346px] text-[14px]">
                 <Link href="/" className="hover:underline">
                     Home
@@ -61,9 +56,12 @@ export default function NavBar() {
                         <Link href="/login" className="hover:underline">
                             Entrar
                         </Link>
-                        <Button className="w-[93px] h-10 text-white bg-black rounded-lg cursor-pointer hover:bg-gray-800">
+                        <Link
+                            href="/register"
+                            className="w-[93px] h-10 text-white bg-black rounded-lg cursor-pointer hover:bg-gray-800 flex justify-center items-center"
+                        >
                             Registrar
-                        </Button>
+                        </Link>
                     </>
                 )}
             </div>

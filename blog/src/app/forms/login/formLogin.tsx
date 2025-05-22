@@ -1,6 +1,9 @@
+"use client"
+
 import Button from "@/app/components/UI/button";
 import Input from "@/app/components/UI/input";
 import { AllFormProps } from "@/app/intercafe";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function FormLogin({ showForm }: AllFormProps) {
@@ -35,19 +38,21 @@ export default function FormLogin({ showForm }: AllFormProps) {
                 }
                 required
             />
-            <a
+            <Link
+                href="/forgotPassword"
                 onClick={() => showForm?.(1)}
                 className="text-[10px] flex justify-end cursor-pointer hover:underline"
             >
                 Esqueceu a Senha?
-            </a>
+            </Link>
             <Button type="submit">Login</Button>
-            <a
+            <Link
+                href="/register"
                 onClick={() => showForm?.(2)}
                 className="text-[10px] flex justify-center cursor-pointer hover:underline"
             >
                 Novo usuário? Clique aqui
-            </a>
+            </Link>
         </form>
     );
 }
