@@ -4,38 +4,35 @@ import Image from "next/image";
 import { useState } from "react";
 import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { FaPen } from "react-icons/fa";
+import { PostedArticlesCardsProps } from "@/app/intercafe";
 import Link from "next/link";
 
-export default function PostedArticlesCards() {
+export default function PostedArticlesCards({
+    id,
+    title,
+    nameUser,
+    urlImg,
+    urlAvatarUser,
+    textArticles,
+}: PostedArticlesCardsProps) {
     const [favorite, setFavorite] = useState(false);
 
     return (
         <>
-            <Link
-                href="/posted_articles"
-                className="flex flex-col justify-between h-[424px] gap-3 col-span-10 col-start-2 lg:gap-3 lg:col-span-4"
-            >
+            <div className="flex flex-col justify-between h-[480px] gap-3 col-span-10 col-start-2 lg:gap-3 lg:col-span-4 ">
                 <Image
-                    src="/assets/iotimg.png"
+                    src={urlImg}
                     width={369}
                     height={224}
                     alt="wallpaperMainCard"
                     className="rounded-2xl shadow lg:rounded-none"
                 />
-                <h2 className="font-semibold text-sm lg:text-base ">
-                    Como a Internet das Coisas (IoT) Está Moldando o Futuro das
-                    Cidades Inteligentes
-                </h2>
-                <p className="text-[12px] lg:text-sm">
-                    TypeScript, uma superconjunto de JavaScript, tem se tornado
-                    uma escolha popular entre desenvolvedores para garantir
-                    código mais seguro e fácil de manter. Neste artigo, vamos
-                    explorar os benefícios da tipagem estática no...
-                </p>
-                <div className="flex justify-between">
+                <Link href={`/${title}`} className="font-semibold h-[100px] overflow-hidden text-sm lg:text-base hover:cursor-pointer hover:underline">{title}</Link>
+                <p className="text-[12px] h-[100px] overflow-hidden lg:text-sm">{textArticles} </p>
+                <div className="flex justify-between" key={id}>
                     <div className="flex items-center gap-3">
                         <Image
-                            src="/assets/fotoUser.jpg"
+                            src={urlAvatarUser}
                             width={100}
                             height={100}
                             alt="wallpaperMainCard"
@@ -44,7 +41,7 @@ export default function PostedArticlesCards() {
                         <p>
                             Por{" "}
                             <span className="font-semibold lg:text-sm">
-                                Vilma Rosa
+                                {nameUser}
                             </span>{" "}
                             - Março 20, 2025
                         </p>
@@ -67,7 +64,7 @@ export default function PostedArticlesCards() {
                         </button>
                     </div>
                 </div>
-            </Link>
+            </div>
         </>
     );
 }
