@@ -1,32 +1,8 @@
-"use client";
-
-import { Children, useState } from "react";
-import Image from "next/image";
 import { GoHome } from "react-icons/go";
 import Link from "next/link";
 import { LoginLayoutProps } from "../../intercafe";
 
 export default function LoginLayout({children}:LoginLayoutProps) {
-    const [showForm, setShowForm] = useState(0);
-
-    const descriptionPage = [
-        {
-            title: "Bem-vindo de volta!",
-            description:
-                "Acesse sua conta para acompanhar artigos exclusivos, favoritar e muito mais.",
-        },
-        {
-            title: "Esqueci a senha",
-            description:
-                "",
-        },
-        {
-            title: "",
-            description:
-                "Crie sua conta para explorar conteúdos incríveis, seguir autores e participar da comunidade.",
-        },
-    ];
-
     return (
         <section className="h-screen grid-cols-12 lg:grid relative">
             <div className="bg-[#090909] hidden col-span-7 lg:flex flex-col justify-center items-center leading-none">

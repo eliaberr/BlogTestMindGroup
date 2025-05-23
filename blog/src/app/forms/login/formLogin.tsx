@@ -1,25 +1,43 @@
-"use client"
+"use client";
 
 import Button from "@/app/components/UI/button";
 import Input from "@/app/components/UI/input";
 import { AllFormProps } from "@/app/intercafe";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function FormLogin({ showForm }: AllFormProps) {
     const [emailUser, setEmailUser] = useState("");
     const [passwordUser, setPasswordUser] = useState("");
-    const test = () => {
-        const emailUserTest = "email@email.com";
-        const senhaUserTest = "1234";
+    const [error, setError] = useState("");
+    const [loginOk, setLoginOk] = useState(false)
+    const router = useRouter();
 
-        if (emailUser == emailUserTest && passwordUser == senhaUserTest) {
-            alert("deu certo");
+    async function Test(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        try {
+            const response = await fetch(
+                `http://localhost:3006/users/login/${emailUser}`
+            );
+            const data = await response.json();
+            if (data.length > 0 && data[0].password === passwordUser) {
+                setLoginOk(true)
+                setTimeout(() => router.push("/"), 2000);
+            } else {
+                setError("Senha incorreta ou usuário não encontrado");
+                setPasswordUser("")
+                setEmailUser("")
+            }
+        } catch (error) {
+            console.error("Erro no fetch:", error);
+            setError("Erro ao buscar usuário");
         }
-    };
+    }
+
     return (
         <form
-            onSubmit={test}
+            onSubmit={Test}
             className="flex flex-col justify-around h-[250px] mt-[70px]"
         >
             <Input
@@ -29,6 +47,7 @@ export default function FormLogin({ showForm }: AllFormProps) {
                     setEmailUser(e.target.value)
                 }
                 required
+                value={emailUser}
             />
             <Input
                 placeholder="Senha"
@@ -37,7 +56,9 @@ export default function FormLogin({ showForm }: AllFormProps) {
                     setPasswordUser(e.target.value)
                 }
                 required
+                value={passwordUser}
             />
+            <p className="text-xs text-center">{error}</p>
             <Link
                 href="/forgotPassword"
                 onClick={() => showForm?.(1)}
@@ -45,7 +66,11 @@ export default function FormLogin({ showForm }: AllFormProps) {
             >
                 Esqueceu a Senha?
             </Link>
-            <Button type="submit">Login</Button>
+            <Button type="submit">
+                {
+                    loginOk ? (<p className="text-green-500 font-bold">Usuário Encontrado</p>):(<>Login</>)
+                }
+            </Button>
             <Link
                 href="/register"
                 onClick={() => showForm?.(2)}

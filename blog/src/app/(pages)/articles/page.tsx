@@ -3,10 +3,10 @@
 import NavBar from "@/app/components/navBar/navBar";
 import PostedArticlesCards from "../../components/cards/postedArticlesCards";
 import { useEffect, useState } from "react";
-import { PostedArticlesCardsProps } from "@/app/intercafe";
+import { ArticlesCardsProps } from "@/app/intercafe";
 
 export default function Articles() {
-    const [articles, setArticles] = useState<PostedArticlesCardsProps[]>([]);
+    const [articles, setArticles] = useState<ArticlesCardsProps[]>([]);
 
     useEffect(() => {
         const articles = async () => {

@@ -1,11 +1,8 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
-import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { FaPen } from "react-icons/fa";
-import { PostedArticlesCardsProps } from "@/app/intercafe";
+import { ArticlesCardsProps } from "@/app/intercafe";
 import Link from "next/link";
+import ButtonFavorite from "../UI/buttonFavorite";
 
 export default function PostedArticlesCards({
     id,
@@ -14,9 +11,7 @@ export default function PostedArticlesCards({
     urlImg,
     urlAvatarUser,
     textArticles,
-}: PostedArticlesCardsProps) {
-    const [favorite, setFavorite] = useState(false);
-
+}: ArticlesCardsProps) {
     return (
         <>
             <div className="flex flex-col justify-between h-[480px] gap-3 col-span-10 col-start-2 lg:gap-3 lg:col-span-4 ">
@@ -27,8 +22,15 @@ export default function PostedArticlesCards({
                     alt="wallpaperMainCard"
                     className="rounded-2xl shadow lg:rounded-none"
                 />
-                <Link href={`/${title}`} className="font-semibold h-[100px] overflow-hidden text-sm lg:text-base hover:cursor-pointer hover:underline">{title}</Link>
-                <p className="text-[12px] h-[100px] overflow-hidden lg:text-sm">{textArticles} </p>
+                <Link
+                    href={`/${title}`}
+                    className="font-semibold h-[100px] overflow-hidden text-sm lg:text-base hover:cursor-pointer hover:underline"
+                >
+                    {title}
+                </Link>
+                <p className="text-[12px] h-[100px] overflow-hidden lg:text-sm">
+                    {textArticles}{" "}
+                </p>
                 <div className="flex justify-between" key={id}>
                     <div className="flex items-center gap-3">
                         <Image
@@ -38,27 +40,14 @@ export default function PostedArticlesCards({
                             alt="wallpaperMainCard"
                             className=" rounded-full w-8 h-8 shadow"
                         />
-                        <p>
+                        <p className="lg:text-sm">
                             Por{" "}
-                            <span className="font-semibold lg:text-sm">
-                                {nameUser}
-                            </span>{" "}
-                            - Março 20, 2025
+                            <span className="font-semibold ">{nameUser}</span> -
+                            Março 20, 2025
                         </p>
                     </div>
-                    <div className="flex gap-3 items-center">
-                        <button
-                            onClick={() => setFavorite(!favorite)}
-                            className={`transition-colors cursor-pointer hover:text-red-500 ${
-                                favorite ? "text-red-500" : "text-gray-400"
-                            }`}
-                        >
-                            {favorite ? (
-                                <MdOutlineFavorite />
-                            ) : (
-                                <MdFavoriteBorder />
-                            )}
-                        </button>
+                    <div className="flex gap-1 items-center">
+                        <ButtonFavorite titleArticle={title} />
                         <button className="bg-[#007AFF] text-white text-[12px] w-[26px] h-[26px] border border-[#007AFF] rounded-lg flex justify-center items-center cursor-pointer hover:bg-white hover:text-[#007AFF]">
                             <FaPen />
                         </button>
